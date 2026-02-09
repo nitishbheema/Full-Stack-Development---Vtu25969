@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 350px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 15px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Student Registration</h2>
+
+  <form action="register.php" method="post">
+    
+    <label>Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Date of Birth</label>
+    <input type="date" name="dob" required>
+
+    <label>Department</label>
+    <select name="department" required>
+      <option value="">Select</option>
+      <option value="CSE">CSE</option>
+      <option value="IT">IT</option>
+      <option value="ECE">ECE</option>
+      <option value="EEE">EEE</option>
+    </select>
+
+    <label>Phone</label>
+    <input type="text" name="phone" required>
+
+    <button type="submit">Register</button>
+
+  </form>
+</div>
+
+</body>
+</html>
