@@ -1,0 +1,50 @@
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  background: #fff;
+  padding: 25px;
+  width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 80px;
+}
+
+button {
+  background: #4e54c8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3b40a4;
+}
+
+.highlight {
+  border-color: #4e54c8;
+  background: #eef;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
