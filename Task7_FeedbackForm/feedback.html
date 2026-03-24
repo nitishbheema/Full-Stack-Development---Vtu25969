@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Form</title>
+  <style>
+    body { font-family: Arial; padding: 30px; background: #f9f9f9; }
+    .form-box { background: white; padding: 30px; width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    input, textarea { width: 100%; padding: 10px; margin: 6px 0 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; transition: border-color 0.3s; }
+    input:hover, textarea:hover { border-color: #4CAF50; background: #f0fff0; }
+    .error { color: red; font-size: 12px; }
+    button { padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Customer Feedback</h2>
+    <label>Name:</label>
+    <input type="text" id="fname" onkeyup="validateName()" placeholder="Your name">
+    <span class="error" id="nameErr"></span>
+
+    <label>Email:</label>
+    <input type="text" id="femail" onkeyup="validateEmail()" placeholder="Your email">
+    <span class="error" id="emailErr"></span>
+
+    <label>Message:</label>
+    <textarea id="fmsg" rows="4" onkeyup="validateMsg()" placeholder="Your feedback"></textarea>
+    <span class="error" id="msgErr"></span>
+
+    <button ondblclick="submitForm()">Double-click to Submit</button>
+    <p id="confirm" style="color:green; font-weight:bold;"></p>
+  </div>
+
+  <script>
+    function validateName() {
+      const val = document.getElementById("fname").value.trim();
+      document.getElementById("nameErr").textContent =
+        val.length < 3 ? "Name must be at least 3 characters." : "";
+    }
+    function validateEmail() {
+      const val = document.getElementById("femail").value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      document.getElementById("emailErr").textContent =
+        !emailRegex.test(val) ? "Enter a valid email address." : "";
+    }
+    function validateMsg() {
+      const val = document.getElementById("fmsg").value.trim();
+      document.getElementById("msgErr").textContent =
+        val.length < 10 ? "Message must be at least 10 characters." : "";
+    }
+    function submitForm() {
+      validateName(); validateEmail(); validateMsg();
+      const errors = document.querySelectorAll(".error");
+      const hasError = Array.from(errors).some(e => e.textContent !== "");
+      if (!hasError) {
+        document.getElementById("confirm").textContent = "✅ Feedback submitted successfully!";
+      }
+    }
+  </script>
+</body>
+</html>
